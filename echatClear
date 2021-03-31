@@ -30,7 +30,7 @@ import org.bukkit.event.Listener;
 		}
 			
 		} else {
-			p.sendMessage("§cVoce nao tem permissao!");
+			p.sendMessage(Config.getNPMessage());
 		}
 		
 		
