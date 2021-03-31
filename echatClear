@@ -1,0 +1,43 @@
+package com.luiz.ecc;
+
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+
+  public class echatClear implements Listener, CommandExecutor{
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
+		
+		
+		if(!(sender instanceof Player)) {
+			return true;}
+		
+		Player p = (Player)sender;
+		if(p.hasPermission("echatclear.use")) {
+		if(cmd.getLabel().equalsIgnoreCase("ecc")) {
+			for (int n = 0; n < 100; n++) {
+				Bukkit.broadcastMessage("");
+			}
+			if (Config.showStaffName() == true) {
+			Bukkit.broadcastMessage(Config.getServerName() + Config.getEccMessage() + p.getDisplayName());
+		  } else {
+			  Bukkit.broadcastMessage(Config.getServerName() + Config.getEccMessage());
+		  }
+		}
+			
+		} else {
+			p.sendMessage("§cVoce nao tem permissao!");
+		}
+		
+		
+		return false;
+		
+		
+  }
+	
+ 
+}
