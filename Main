@@ -1,0 +1,32 @@
+package com.luiz.ecc;
+
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class Main extends JavaPlugin{
+	
+	@Override
+	public void onEnable() {
+		Bukkit.getConsoleSender().sendMessage("§aeChatClear iniciado!");
+		
+		Bukkit.getPluginManager().registerEvents(new echatClear(), (Plugin) this);
+		Bukkit.getPluginManager().registerEvents(new pchatClear(), (Plugin) this);
+		Bukkit.getPluginManager().registerEvents(new uchatClear(), (Plugin) this);
+		
+		getCommand("ecc").setExecutor(new echatClear());
+		getCommand("pcc").setExecutor(new pchatClear());
+		getCommand("ucc").setExecutor(new uchatClear());
+		
+		new Config(this);
+		
+	}
+	
+	
+	public void onDisable() {
+		Bukkit.getConsoleSender().sendMessage("§ceChatClear desativado!");
+	}
+	
+	
+
+}
