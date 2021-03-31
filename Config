@@ -1,0 +1,33 @@
+package com.luiz.ecc;
+
+public class Config {
+	
+	private static Main main;
+	
+	public Config(Main main) {
+		Config.main = main;
+		
+		main.getConfig().options().copyDefaults();
+		main.saveDefaultConfig();
+		
+	}
+	
+	public static String getServerName() { return main.getConfig().getString("server-name"); }
+	
+    public static String getEccMessage() { return main.getConfig().getString("ecc-message"); }
+    
+    public static String getPccMessage() { return main.getConfig().getString("pcc-message"); }
+    
+    public static String getUccSenderMSG() { return main.getConfig().getString("ucc-message-sender"); }
+    
+    public static String getUccTargetMSG() { return main.getConfig().getString("ucc-message-target"); }
+    
+    public static String getNPMessage() { return main.getConfig().getString("no-permission"); }
+    
+    public static String invalidUsageMSG() { return main.getConfig().getString("invalid-usage"); }
+    
+    public static String playerNF() { return main.getConfig().getString("player-not-found"); } 
+    
+    public static boolean showStaffName() { return main.getConfig().getBoolean("show-staff-name"); }
+    
+}
